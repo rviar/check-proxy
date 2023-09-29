@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var _ = require("lodash");
+var lodash_1 = require("lodash");
 function default_1(headers, getParams, postParams, cookies) {
     var res = {
         get: (getParams.test && getParams.test == 'get') || false,
@@ -11,9 +11,9 @@ function default_1(headers, getParams, postParams, cookies) {
         anonymityLevel: 0
     };
     if (getParams.ip) {
-        var ips = _.isArray(getParams.ip) ? getParams.ip : [getParams.ip];
-        var headersStr_1 = _(headers).reduce(function (result, el) { return result + el; });
-        var foundIp = _.find(ips, function (ip) { return headersStr_1.indexOf(ip) != -1; });
+        var ips = lodash_1.default.isArray(getParams.ip) ? getParams.ip : [getParams.ip];
+        var headersStr_1 = (0, lodash_1.default)(headers).reduce(function (result, el) { return result + el; });
+        var foundIp = lodash_1.default.find(ips, function (ip) { return headersStr_1.indexOf(ip) != -1; });
         res.anonymityLevel = foundIp ? 0 : 1;
     }
     else {
